@@ -4,13 +4,13 @@ import smtplib
 thanking = "Thank you for the feedback"
 
 
-def send_email(email, thanking_):
-    from_email = "ismailabou6@gmail.com"
-    from_password = "123688mr"
+def send_email(email):
+    from_email = 'ismailabou6@gmail.com'
+    from_password = '123688mr'
     to_email = email
 
     subject = "Feedback"
-    message = thanking_
+    message = thanking
 
     msg = MIMEText(message, 'html')
     msg['Subject'] = subject
