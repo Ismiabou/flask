@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from email_sending import send_email
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ismail:HYi2S0WnyFROdPN98WbW3xjfgANDFMZI@dpg-ce8hm8arrk03sibqe5gg' \
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ismail:HYi2S0WnyFROdPN98WbW3xjfgANDFMZI@dpg-ce8hm8arrk03sibqe5gg' \
                                         '-a/commentary?sslmode=require '
 db = SQLAlchemy(app)
 
