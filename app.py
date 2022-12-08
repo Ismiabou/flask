@@ -3,8 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from email_sending import send_email
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ismail:HYi2S0WnyFROdPN98WbW3xjfgANDFMZI@dpg-ce8hm8arrk03sibqe5gg' \
-                                        '-a/commentary'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123688mr@localhost/commentary'
 db = SQLAlchemy(app)
 
 
@@ -30,17 +29,19 @@ def iee():
     return render_template("Home.html")
 
 
-@app.route('/home', methods=['POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
+    u = db.session.query(Data).scalar()
+    print(u)
     if request.method == 'POST':
         email = request.form["email"]
         name = request.form["name"]
         comment = request.form["comment"]
+        send_email(email)
         if db.session.query(Data).filter(Data.email == email).count() == 0:
             data = Data(email, name, comment)
             db.session.add(data)
             db.session.commit()
-            send_email(email)
             return render_template("Home.html")
     return render_template("Home.html")
 

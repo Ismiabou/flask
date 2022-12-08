@@ -45,33 +45,108 @@
 
     </div>
 </nav>
-<footer class="container-fluid text-black-50" style="margin-bottom: -1px ;background-color: #b35e25; font-weight: bold; font-color: black;">
-    <div class=" container-fluid card-group border-primary mb-3" style="margin-bottom: auto; padding: 5px; display: inline; max-width: 150rem; display: flex; position: left;">
-        <div class="card-footer" style="margin: auto; display: inline; padding: 5px;">
-            <form class="newsletter" method="post">
-                <label for="name">Name: </label>
-                <input id="name" placeholder="Enter your name" type="text">
-                <label for="email">Email: </label>
-                <input id="email" type="email" placeholder="Enter your email">
-                <input type="submit" value="Sign in" style="color:#000;font-weight: bold; background-color:#0d6efd;">
-            </form>
-        </div>
+<div class="container my-" style="background-color: #e38b51">
 
-        <div class="card-footer" style=" margin: auto; display: inline; padding: 5px;">
-            <ul class="Support">
-                <li class="language"><a href="#" style="color:#000;">Language</a></li>
-                <li class="Help"><a href="#" style="color:#000;">Help</a></li>
-                <li class="Thanking"><a href="#" style="color:#000;">Thanking</a></li>
-            </ul>
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
+
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            <a class="text-white" href="#!">About us</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Collections</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Environmental philosophy</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Artist collaborations</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Assistance</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white" href="#!">Contact us</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Size Guide</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Shipping Information</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Returns & Exchanges</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="#!">Payment</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Careers</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white" href="#!">Jobs</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
+
+                    <div class="form-outline form-white mb-4">
+                        <form action="{{url_for('home')}}" class="newsletter" method="post">
+                            <label class="form-label text-white" for="name">Name: </label>
+                            <br><input class="form-control" id="name" name="name" placeholder="Enter your name"
+                                       type="text">
+                            <br><label class="form-label text-white" for="email">Email: </label>
+                            <br><input class="form-control" id="email" name="email" placeholder="Enter your email"
+                                       type="email">
+                            <br><label class="form-label text-white" for="comment">Commentaire</label>
+                            <br><input class="form-control" id="comment" name="comment" placeholder="Type your text"
+                                       style=""
+                                       type="text">
+                            <button class="btn btn-outline-success" type="submit" style="margin-top:8px;">Subscribe</button>
+                        </form>
+                    </div>
+
+
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
         </div>
-        <div class="card-footer" style=" margin: auto; display: inline; padding: 5px; float:right;">
-            <ul class="">
-                <li class="politics"><a href="#" style="color:#000; hover:">Politics</a></li>
-                <li class="licence"><a href="#" style="color:#000;">Licence</a></li>
-                <li class="credential"><a href="#" style="color:#000;">Credential</a></li>
-            </ul>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 border-top border-white">
+            © 2022 Copyright:
+            <a class="text-white" href="http://iee.onrender.com">IEE</a>
         </div>
-    </div>
-</footer>
+        <!-- Copyright -->
+    </footer>
+
+</div>
+<!-- End of .container -->
+
 </body>
 </html>
