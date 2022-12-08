@@ -31,8 +31,6 @@ def iee():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    u = db.session.query(Data).scalar()
-    print(u)
     if request.method == 'POST':
         email = request.form["email"]
         name = request.form["name"]
