@@ -44,8 +44,15 @@
     </div>
 </nav>
 <nav class="" style="height:650px;">
-    <div class="card">
-<h4 class="card-title" style="color:#e38b51; font-style: italic; display: adjust;"> Bienvenue chez IEE</h4>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            {% for p in posts %}
+            <h5 class="card-title">Commentaire</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{p.name}}</h6>
+            <p class="card-text">{{p.comment}}</p>
+            <a class="card-link" href="#">{{p.email}}</a>
+            {% endfor %}
+        </div>
     </div>
 </nav>
 
@@ -116,10 +123,10 @@
 
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
+                    <h5 class="text-uppercase mb-4">Sign up to our feedback</h5>
 
                     <div class="form-outline form-white mb-4">
-                        <form action="{{url_for('home')}}" class="newsletter" method="post">
+                        <form action="{{url_for('home')}}" class="newsletter" method="POST">
                             <label class="form-label text-white" for="name">Name: </label>
                             <br><input class="form-control" id="name" name="name" placeholder="Enter your name"
                                        type="text">
@@ -130,7 +137,8 @@
                             <br><input class="form-control" id="comment" name="comment" placeholder="Type your text"
                                        style=""
                                        type="text">
-                            <button class="btn btn-outline-success" type="submit" style="margin-top:8px;">Subscribe</button>
+                            <button class="btn btn-outline-success" style="margin-top:8px;" type="submit">Subscribe
+                            </button>
                         </form>
                     </div>
 

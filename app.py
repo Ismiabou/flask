@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from email_sending import send_email
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123688mr@localhost/commentary'
@@ -20,28 +19,30 @@ class Data(db.Model):
         self.comment = comment
 
 
-with app.app_context():
-    db.create_all()
-
-
-@app.route('/', methods=['GET'])
-def iee():
-    return render_template("Home.html")
-
-
-@app.route('/home', methods=['GET', 'POST'])
-def home():
+def add():
     if request.method == 'POST':
         email = request.form["email"]
         name = request.form["name"]
         comment = request.form["comment"]
-        send_email(email)
         if db.session.query(Data).filter(Data.email == email).count() == 0:
             data = Data(email, name, comment)
             db.session.add(data)
             db.session.commit()
-            return render_template("Home.html")
-    return render_template("Home.html")
+
+
+@app.route('/', methods=['GET', 'POST'])
+def iee():
+    add()
+    posts = Data.query.all()
+
+    return render_template("Home.html", posts=posts)
+
+
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    add()
+    posts = Data.query.all()
+    return render_template("Home.html", posts=posts)
 
 
 @app.route('/installation', methods=['GET'])
