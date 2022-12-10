@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123688mr@localhost/commentary'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ismail:HYi2S0WnyFROdPN98WbW3xjfgANDFMZI@dpg-ce8hm8arrk03sibqe5gg-a/commentary'
 db = SQLAlchemy(app)
 
 
