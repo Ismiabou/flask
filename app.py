@@ -18,8 +18,14 @@ class Data(db.Model):
         self.name = name
         self.comment = comment
 
+@app.route('/', methods=['GET', 'POST'])
+def iee():
+    posts = Data.query.all()
+    return render_template("Home.html", posts=posts)
 
-def add():
+
+@app.route('/home', methods=['GET', 'POST'])
+def home():
     if request.method == 'POST':
         email = request.form["email"]
         name = request.form["name"]
@@ -28,19 +34,6 @@ def add():
             data = Data(email, name, comment)
             db.session.add(data)
             db.session.commit()
-
-
-@app.route('/', methods=['GET', 'POST'])
-def iee():
-    add()
-    posts = Data.query.all()
-
-    return render_template("Home.html", posts=posts)
-
-
-@app.route('/home', methods=['GET', 'POST'])
-def home():
-    add()
     posts = Data.query.all()
     return render_template("Home.html", posts=posts)
 
