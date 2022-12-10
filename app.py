@@ -18,7 +18,7 @@ class Data(db.Model):
         self.name = name
         self.comment = comment
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET'])
 def iee():
     posts = Data.query.all()
     return render_template("Home.html", posts=posts)
