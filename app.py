@@ -18,13 +18,13 @@ class Data(db.Model):
         self.name = name
         self.comment = comment
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def iee():
     posts = Data.query.all()
     return render_template("Home.html", posts=posts)
 
 
-@app.route('/home', methods=['POST'])
+@app.route('/home', methods=['POST','GET'])
 def home():
     if request.method == 'POST':
         email = request.form["email"]
